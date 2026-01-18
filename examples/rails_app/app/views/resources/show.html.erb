@@ -1,0 +1,42 @@
+<h1><%= @resource.name %></h1>
+
+<p><strong>Type:</strong> <%= @resource.resource_type %></p>
+<p><strong>Description:</strong> <%= @resource.description %></p>
+
+<div class="alert alert-notice">
+  <strong>Access Granted!</strong> You have permission to view this resource.
+</div>
+
+<h2>Access Rules for this Resource</h2>
+
+<% if @access_rules.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Rule Name</th>
+        <th>Action</th>
+        <th>Condition</th>
+        <th>Evaluation Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @access_rules.each do |rule| %>
+        <tr>
+          <td><%= rule.name %></td>
+          <td><%= rule.action %></td>
+          <td><pre><%= JSON.pretty_generate(rule.condition) %></pre></td>
+          <td>
+            <% result = rule.evaluate_for(@current_user) %>
+            <%= result ? '✓ Granted' : '✗ Denied' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No access rules defined for this resource.</p>
+<% end %>
+
+<p>
+  <%= link_to 'Back to Resources', resources_path, class: 'btn btn-secondary' %>
+</p>

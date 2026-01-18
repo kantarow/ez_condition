@@ -1,0 +1,40 @@
+<h1>Users</h1>
+
+<p>Switch between users to test different access control scenarios.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Department</th>
+      <th>Age</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr <%= 'style=background:#e3f2fd;' if user == @current_user %>>
+        <td><%= user.name %><%= ' (Current)' if user == @current_user %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= user.department %></td>
+        <td><%= user.age %></td>
+        <td><%= user.active ? 'Yes' : 'No' %></td>
+        <td>
+          <% if user != @current_user %>
+            <%= link_to 'Switch to this user', users_path(switch_to: user.id), method: :get, class: 'btn' %>
+          <% else %>
+            <span style="color: #4CAF50;">Active</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>User Context</h2>
+<p>When evaluating access rules, the current user's attributes are converted to a context hash:</p>
+<pre><%= JSON.pretty_generate(@current_user.to_context) %></pre>

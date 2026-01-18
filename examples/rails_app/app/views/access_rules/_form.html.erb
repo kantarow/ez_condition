@@ -1,0 +1,44 @@
+<%= form_with(model: access_rule, local: true) do |f| %>
+  <% if access_rule.errors.any? %>
+    <div class="error-messages">
+      <h3><%= pluralize(access_rule.errors.count, "error") %> prohibited this access rule from being saved:</h3>
+      <ul>
+        <% access_rule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :resource_id %>
+    <%= f.collection_select :resource_id, resources, :id, :name, { prompt: 'Select a resource' }, { required: true } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :action %>
+    <%= f.select :action, ['read', 'write', 'delete'], { prompt: 'Select an action' }, { required: true } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :condition, 'Condition (JSON)' %>
+    <%= f.text_area :condition, rows: 15, required: true, value: JSON.pretty_generate(access_rule.condition || {}) %>
+    <small class="help-text">Enter condition as JSON. Example:
+<pre>{
+  "type": "equal",
+  "left": { "type": "var", "name": "role" },
+  "right": { "type": "string", "value": "admin" }
+}</pre>
+    </small>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn' %>
+    <%= link_to 'Cancel', access_rules_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

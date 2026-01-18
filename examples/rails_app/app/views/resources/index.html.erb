@@ -1,0 +1,30 @@
+<h1>Resources</h1>
+
+<p>Below are the available resources. Click on a resource to view it (access control will be enforced).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resources.each do |resource| %>
+      <tr>
+        <td><%= resource.name %></td>
+        <td><%= resource.resource_type %></td>
+        <td><%= resource.description %></td>
+        <td>
+          <%= link_to 'View', resource_path(resource), class: 'btn' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if @resources.empty? %>
+  <p>No resources found. Run <code>rails db:seed</code> to create sample data.</p>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Access Rules</h1>
+
+<p><%= link_to 'New Access Rule', new_access_rule_path, class: 'btn' %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Rule Name</th>
+      <th>Action</th>
+      <th>Condition</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @access_rules.each do |rule| %>
+      <tr>
+        <td><%= rule.resource.name %></td>
+        <td><%= rule.name %></td>
+        <td><%= rule.action %></td>
+        <td><pre><%= JSON.pretty_generate(rule.condition) %></pre></td>
+        <td>
+          <%= link_to 'Edit', edit_access_rule_path(rule), class: 'btn btn-secondary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
