@@ -1,0 +1,115 @@
+PATH
+  remote: .
+  specs:
+    ez_condition (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.3)
+    cgi (0.4.2)
+    date (3.4.1)
+    diff-lcs (1.6.2)
+    erb (4.0.4)
+      cgi (>= 0.3.3)
+    io-console (0.8.1)
+    irb (1.14.3)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
+    json (2.18.0)
+    language_server-protocol (3.17.0.5)
+    parallel (1.27.0)
+    parser (3.3.10.0)
+      ast (~> 2.4.1)
+      racc
+    prism (1.7.0)
+    psych (5.2.2)
+      date
+      stringio
+    racc (1.8.1)
+    rainbow (3.1.1)
+    rake (13.3.1)
+    rdoc (6.14.0)
+      erb
+      psych (>= 4.0.0)
+    regexp_parser (2.11.3)
+    reline (0.6.0)
+      io-console (~> 0.5)
+    rexml (3.4.4)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.6)
+    rubocop (1.61.0)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.49.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
+    ruby-progressbar (1.13.0)
+    stringio (3.1.2)
+    unicode-display_width (2.6.0)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  ez_condition!
+  irb
+  rake (~> 13.0)
+  rspec (~> 3.0)
+  rubocop (~> 1.21)
+
+CHECKSUMS
+  ast (2.4.3)
+  cgi (0.4.2)
+  date (3.4.1)
+  diff-lcs (1.6.2)
+  erb (4.0.4)
+  ez_condition (0.1.0)
+  io-console (0.8.1)
+  irb (1.14.3)
+  json (2.18.0)
+  language_server-protocol (3.17.0.5)
+  parallel (1.27.0)
+  parser (3.3.10.0)
+  prism (1.7.0)
+  psych (5.2.2)
+  racc (1.8.1)
+  rainbow (3.1.1)
+  rake (13.3.1)
+  rdoc (6.14.0)
+  regexp_parser (2.11.3)
+  reline (0.6.0)
+  rexml (3.4.4)
+  rspec (3.13.2)
+  rspec-core (3.13.6)
+  rspec-expectations (3.13.5)
+  rspec-mocks (3.13.7)
+  rspec-support (3.13.6)
+  rubocop (1.61.0)
+  rubocop-ast (1.49.0)
+  ruby-progressbar (1.13.0)
+  stringio (3.1.2)
+  unicode-display_width (2.6.0)
+
+BUNDLED WITH
+  4.0.2
